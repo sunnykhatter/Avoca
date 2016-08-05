@@ -1,0 +1,6 @@
+framework module Pods_AvocaUITests {
+  umbrella header "Pods-AvocaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_Avoca {
+  umbrella header "Pods-Avoca-umbrella.h"
+
+  export *
+  module * { export * }
+}
