@@ -18,6 +18,11 @@
 		AC8972D11D55571400F6F2B1 /* AvocaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8972D01D55571400F6F2B1 /* AvocaTests.swift */; };
 		AC8972DC1D55571400F6F2B1 /* AvocaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8972DB1D55571400F6F2B1 /* AvocaUITests.swift */; };
 		AC8972EA1D55598A00F6F2B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8972E91D55598A00F6F2B1 /* GoogleService-Info.plist */; };
+		ACF0BA951D555F2C00072A67 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF0BA921D555F2C00072A67 /* FBSDKCoreKit.framework */; };
+		ACF0BA961D555F2C00072A67 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF0BA931D555F2C00072A67 /* FBSDKLoginKit.framework */; };
+		ACF0BA971D555F2C00072A67 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF0BA941D555F2C00072A67 /* FBSDKShareKit.framework */; };
+		ACF639671D55649300D20DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF639661D55649300D20DAD /* LoginViewController.swift */; };
+		ACF639691D556AFA00D20DAD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF639681D556AFA00D20DAD /* ProfileViewController.swift */; };
 		BC43588D69B2276937B867C2 /* Pods_Avoca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8293F31BA74399B753CCD02 /* Pods_Avoca.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +63,11 @@
 		AC8972DB1D55571400F6F2B1 /* AvocaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocaUITests.swift; sourceTree = "<group>"; };
 		AC8972DD1D55571400F6F2B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC8972E91D55598A00F6F2B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACF0BA921D555F2C00072A67 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../Documents/FacebookSDKs-iOS-4.14.0/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		ACF0BA931D555F2C00072A67 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../Documents/FacebookSDKs-iOS-4.14.0/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		ACF0BA941D555F2C00072A67 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../Documents/FacebookSDKs-iOS-4.14.0/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		ACF639661D55649300D20DAD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ACF639681D556AFA00D20DAD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B70B44D98C7A6A54F0369F22 /* Pods-Avoca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avoca.release.xcconfig"; path = "Pods/Target Support Files/Pods-Avoca/Pods-Avoca.release.xcconfig"; sourceTree = "<group>"; };
 		E13366C116C2ED7B7B6E029A /* Pods-AvocaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvocaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AvocaTests/Pods-AvocaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA15C26ACF3670CDCED43B7B /* Pods_AvocaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvocaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF0BA971D555F2C00072A67 /* FBSDKShareKit.framework in Frameworks */,
 				BC43588D69B2276937B867C2 /* Pods_Avoca.framework in Frameworks */,
+				ACF0BA951D555F2C00072A67 /* FBSDKCoreKit.framework in Frameworks */,
+				ACF0BA961D555F2C00072A67 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +122,9 @@
 		8E11E26CBF4160F64818F07E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACF0BA921D555F2C00072A67 /* FBSDKCoreKit.framework */,
+				ACF0BA931D555F2C00072A67 /* FBSDKLoginKit.framework */,
+				ACF0BA941D555F2C00072A67 /* FBSDKShareKit.framework */,
 				F8293F31BA74399B753CCD02 /* Pods_Avoca.framework */,
 				EA15C26ACF3670CDCED43B7B /* Pods_AvocaTests.framework */,
 				A3C8001DFBEC59C560D4FACE /* Pods_AvocaUITests.framework */,
@@ -142,8 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				AC8972B91D55571400F6F2B1 /* AppDelegate.swift */,
+				ACF639661D55649300D20DAD /* LoginViewController.swift */,
 				AC8972BB1D55571400F6F2B1 /* FirstViewController.swift */,
 				AC8972BD1D55571400F6F2B1 /* SecondViewController.swift */,
+				ACF639681D556AFA00D20DAD /* ProfileViewController.swift */,
 				AC8972BF1D55571400F6F2B1 /* Main.storyboard */,
 				AC8972C21D55571400F6F2B1 /* Assets.xcassets */,
 				AC8972C41D55571400F6F2B1 /* LaunchScreen.storyboard */,
@@ -434,7 +452,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF639671D55649300D20DAD /* LoginViewController.swift in Sources */,
 				AC8972BE1D55571400F6F2B1 /* SecondViewController.swift in Sources */,
+				ACF639691D556AFA00D20DAD /* ProfileViewController.swift in Sources */,
 				AC8972BA1D55571400F6F2B1 /* AppDelegate.swift in Sources */,
 				AC8972BC1D55571400F6F2B1 /* FirstViewController.swift in Sources */,
 			);
@@ -581,6 +601,18 @@
 			baseConfigurationReference = FA4B2FAEA461018DAC6B9545 /* Pods-Avoca.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"/Users/lakshaykhatter/Documents/FacebookSDKs-iOS-4.14.0",
+				);
 				INFOPLIST_FILE = Avoca/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.khatter.Avoca;
@@ -593,6 +625,18 @@
 			baseConfigurationReference = B70B44D98C7A6A54F0369F22 /* Pods-Avoca.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"/Users/lakshaykhatter/Documents/FacebookSDKs-iOS-4.14.0",
+				);
 				INFOPLIST_FILE = Avoca/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.khatter.Avoca;

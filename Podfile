@@ -7,6 +7,8 @@ target 'Avoca' do
 
   # Pods for Avoca
   pod 'Firebase'
+  pod 'Firebase/Auth'
+
 
   target 'AvocaTests' do
     inherit! :search_paths
