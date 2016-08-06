@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Profile"
+        
 
         self.profileImageView.clipsToBounds = true
         
@@ -37,6 +38,9 @@ class ProfileViewController: UIViewController {
             
             self.name_label.text = name
             self.name_label.adjustsFontSizeToFitWidth = true
+            self.name_label.font = UIFont(name: "Montserrat-Regular",size:18)
+            //            UILabel.appearance().font = UIFont(name: "Montserrat-Regular",size:14)
+
             
             let data = NSData(contentsOfURL: photoUrl!)
             self.profileImageView.image = UIImage(data:data!)

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let font = font {
             UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : font]
-            UILabel.appearance().font = UIFont(name: "Montserrat-Regular",size:14)
+//            UILabel.appearance().font = UIFont(name: "Montserrat-Regular",size:14)
 
         }
         
