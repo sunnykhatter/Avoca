@@ -18,7 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-    
+        let font = UIFont(name: "Montserrat-Bold", size: 30)
+        
+        if let font = font {
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : font]
+            UILabel.appearance().font = UIFont(name: "Montserrat-Regular",size:14)
+
+        }
         
         FIRApp.configure()
         

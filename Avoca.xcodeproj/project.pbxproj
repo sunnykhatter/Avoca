@@ -23,6 +23,10 @@
 		ACF0BA971D555F2C00072A67 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF0BA941D555F2C00072A67 /* FBSDKShareKit.framework */; };
 		ACF639671D55649300D20DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF639661D55649300D20DAD /* LoginViewController.swift */; };
 		ACF639691D556AFA00D20DAD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF639681D556AFA00D20DAD /* ProfileViewController.swift */; };
+		ACF6396C1D558F4900D20DAD /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACF6396A1D55881200D20DAD /* Montserrat-Bold.ttf */; };
+		ACF6396D1D558F4B00D20DAD /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACF6396B1D55881200D20DAD /* Montserrat-Regular.ttf */; };
+		ACF6396F1D5591DB00D20DAD /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF6396E1D5591DB00D20DAD /* NotificationViewController.swift */; };
+		ACF639711D55921B00D20DAD /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF639701D55921B00D20DAD /* TrendingViewController.swift */; };
 		BC43588D69B2276937B867C2 /* Pods_Avoca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8293F31BA74399B753CCD02 /* Pods_Avoca.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,10 @@
 		ACF0BA941D555F2C00072A67 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../Documents/FacebookSDKs-iOS-4.14.0/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		ACF639661D55649300D20DAD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ACF639681D556AFA00D20DAD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		ACF6396A1D55881200D20DAD /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		ACF6396B1D55881200D20DAD /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		ACF6396E1D5591DB00D20DAD /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		ACF639701D55921B00D20DAD /* TrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		B70B44D98C7A6A54F0369F22 /* Pods-Avoca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Avoca.release.xcconfig"; path = "Pods/Target Support Files/Pods-Avoca/Pods-Avoca.release.xcconfig"; sourceTree = "<group>"; };
 		E13366C116C2ED7B7B6E029A /* Pods-AvocaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvocaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AvocaTests/Pods-AvocaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA15C26ACF3670CDCED43B7B /* Pods_AvocaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvocaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,11 +170,15 @@
 				AC8972BB1D55571400F6F2B1 /* FirstViewController.swift */,
 				AC8972BD1D55571400F6F2B1 /* SecondViewController.swift */,
 				ACF639681D556AFA00D20DAD /* ProfileViewController.swift */,
+				ACF6396E1D5591DB00D20DAD /* NotificationViewController.swift */,
+				ACF639701D55921B00D20DAD /* TrendingViewController.swift */,
 				AC8972BF1D55571400F6F2B1 /* Main.storyboard */,
 				AC8972C21D55571400F6F2B1 /* Assets.xcassets */,
 				AC8972C41D55571400F6F2B1 /* LaunchScreen.storyboard */,
 				AC8972C71D55571400F6F2B1 /* Info.plist */,
 				AC8972E91D55598A00F6F2B1 /* GoogleService-Info.plist */,
+				ACF6396A1D55881200D20DAD /* Montserrat-Bold.ttf */,
+				ACF6396B1D55881200D20DAD /* Montserrat-Regular.ttf */,
 			);
 			path = Avoca;
 			sourceTree = "<group>";
@@ -301,6 +313,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF6396D1D558F4B00D20DAD /* Montserrat-Regular.ttf in Resources */,
+				ACF6396C1D558F4900D20DAD /* Montserrat-Bold.ttf in Resources */,
 				AC8972C61D55571400F6F2B1 /* LaunchScreen.storyboard in Resources */,
 				AC8972EA1D55598A00F6F2B1 /* GoogleService-Info.plist in Resources */,
 				AC8972C31D55571400F6F2B1 /* Assets.xcassets in Resources */,
@@ -452,8 +466,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF639711D55921B00D20DAD /* TrendingViewController.swift in Sources */,
 				ACF639671D55649300D20DAD /* LoginViewController.swift in Sources */,
 				AC8972BE1D55571400F6F2B1 /* SecondViewController.swift in Sources */,
+				ACF6396F1D5591DB00D20DAD /* NotificationViewController.swift in Sources */,
 				ACF639691D556AFA00D20DAD /* ProfileViewController.swift in Sources */,
 				AC8972BA1D55571400F6F2B1 /* AppDelegate.swift in Sources */,
 				AC8972BC1D55571400F6F2B1 /* FirstViewController.swift in Sources */,
