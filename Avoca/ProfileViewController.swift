@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import FBSDKCoreKit
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UICollectionViewDataSource{
     @IBOutlet weak var name_label: UILabel!
     
     @IBOutlet weak var follower_button: UIButton!
@@ -46,8 +47,13 @@ class ProfileViewController: UIViewController {
             self.profileImageView.image = UIImage(data:data!)
             
             
+            let storage = FIRStorage.storage()
+
+            
         } else {
             // No user is signed in.
+            
+            
         }
         
         
@@ -67,10 +73,24 @@ class ProfileViewController: UIViewController {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let loginViewController: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LoginView")
         self.presentViewController(loginViewController, animated: true, completion: nil)
-
-        
-        
-
+    }
+    
+    //1
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    //2
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    //3
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! UICollectionViewCell
+        cell.backgroundColor = UIColor.blackColor()
+        // Configure the cell
+        return cell
     }
 
     

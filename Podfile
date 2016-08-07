@@ -8,6 +8,7 @@ target 'Avoca' do
   # Pods for Avoca
   pod 'Firebase'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
 
 
   target 'AvocaTests' do

@@ -134,16 +134,62 @@
                                     <constraint firstAttribute="height" constant="87" id="h0U-ch-ebk"/>
                                 </constraints>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ey9-Rp-5Mc">
+                                <rect key="frame" x="0.0" y="225" width="605" height="326"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="va0-SE-fRC">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="WIZ-u4-zqg">
+                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="0.49628352081211125" blue="0.5571160582827146" alpha="1" colorSpace="calibratedRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="v6B-7G-NjP">
+                                    <rect key="frame" x="0.0" y="0.0" width="605" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="6Qc-TQ-V4y" id="bzs-MO-fa6"/>
+                                    <outlet property="delegate" destination="6Qc-TQ-V4y" id="iA7-gh-uir"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izf-AQ-2Uf">
+                                <rect key="frame" x="11" y="171" width="569" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="U4S-Ru-zhx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="izf-AQ-2Uf" firstAttribute="leading" secondItem="BoZ-nq-YgG" secondAttribute="leading" id="AtN-pz-AfR"/>
                             <constraint firstItem="KFc-7W-8pF" firstAttribute="leading" secondItem="BoZ-nq-YgG" secondAttribute="trailing" constant="12" id="ClT-3K-eTg"/>
                             <constraint firstItem="4tT-jV-WVF" firstAttribute="top" secondItem="Swy-VU-bLe" secondAttribute="bottom" constant="10" id="IHB-uH-Jxf"/>
                             <constraint firstItem="LH6-tF-6lU" firstAttribute="leading" secondItem="BoZ-nq-YgG" secondAttribute="trailing" constant="10" id="Ioo-B5-Z1u"/>
                             <constraint firstItem="KFc-7W-8pF" firstAttribute="top" secondItem="4tT-jV-WVF" secondAttribute="bottom" constant="4" id="KTn-IC-YcA"/>
+                            <constraint firstItem="ey9-Rp-5Mc" firstAttribute="leading" secondItem="gN9-Wv-FX8" secondAttribute="leading" id="LZc-gp-x7x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ey9-Rp-5Mc" secondAttribute="trailing" constant="-25" id="PIW-5Z-yPs"/>
                             <constraint firstItem="LH6-tF-6lU" firstAttribute="top" secondItem="4tT-jV-WVF" secondAttribute="bottom" constant="31" id="STf-Qn-vn3"/>
+                            <constraint firstItem="ey9-Rp-5Mc" firstAttribute="top" secondItem="izf-AQ-2Uf" secondAttribute="bottom" constant="8" symbolic="YES" id="TLk-xL-QXI"/>
                             <constraint firstItem="BoZ-nq-YgG" firstAttribute="leading" secondItem="gN9-Wv-FX8" secondAttribute="leadingMargin" constant="-9" id="Wyc-zT-sU3"/>
                             <constraint firstItem="BoZ-nq-YgG" firstAttribute="top" secondItem="Swy-VU-bLe" secondAttribute="bottom" constant="12" id="Y8C-fT-Ilh"/>
+                            <constraint firstItem="izf-AQ-2Uf" firstAttribute="trailing" secondItem="gN9-Wv-FX8" secondAttribute="trailingMargin" id="cFv-ra-Arc"/>
+                            <constraint firstItem="izf-AQ-2Uf" firstAttribute="top" secondItem="BoZ-nq-YgG" secondAttribute="bottom" constant="8" symbolic="YES" id="h1r-g8-bWx"/>
+                            <constraint firstItem="ey9-Rp-5Mc" firstAttribute="bottom" secondItem="Rjr-eK-5hp" secondAttribute="top" id="khB-3I-KCp"/>
                             <constraint firstItem="4tT-jV-WVF" firstAttribute="leading" secondItem="BoZ-nq-YgG" secondAttribute="trailing" constant="13" id="vyb-ZO-tsO"/>
                         </constraints>
                     </view>
@@ -190,6 +236,7 @@
                     </view>
                     <connections>
                         <outlet property="spinner" destination="fph-K4-UhZ" id="ZE7-BQ-StL"/>
+                        <segue destination="49e-Tb-3d3" kind="show" id="9I2-It-Hba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrD-CN-cLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,7 +287,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEq-5c-1As" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="870" y="-332"/>
         </scene>
         <!--Record-->
         <scene sceneID="NZW-Qm-hcW">
@@ -265,7 +312,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klN-zT-oob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="360"/>
+            <point key="canvasLocation" x="870" y="360"/>
         </scene>
         <!--Profile-->
         <scene sceneID="WLE-Pe-vDe">
