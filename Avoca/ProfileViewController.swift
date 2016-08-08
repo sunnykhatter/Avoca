@@ -25,8 +25,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Profile"
+    
         
-
         self.profileImageView.clipsToBounds = true
         
         if let user = FIRAuth.auth()?.currentUser {
@@ -40,15 +40,63 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
             self.name_label.text = name
             self.name_label.adjustsFontSizeToFitWidth = true
             self.name_label.font = UIFont(name: "Montserrat-Regular",size:18)
-            //            UILabel.appearance().font = UIFont(name: "Montserrat-Regular",size:14)
-
-            
-            let data = NSData(contentsOfURL: photoUrl!)
-            self.profileImageView.image = UIImage(data:data!)
             
             
             let storage = FIRStorage.storage()
+            
+            let storageRef = storage.referenceForURL("gs://avoca-7815d.appspot.com")
+            
+            let profilePicReference = storageRef.child(user.uid + "/profile_pic.jpg")
 
+            
+            profilePicReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+                if (error != nil) {
+                    print("Uh-oh, an error occurred!")
+                    
+                } else {
+                    
+                    if (data != nil){
+                        self.profileImageView.image = UIImage(data:data!)
+                    }
+                    
+                }
+            }
+            
+            
+            if (self.profileImageView.image == nil) {
+                
+            var profile_pic: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":100, "width":100,"redirect":false], HTTPMethod: "GET")
+            profile_pic.startWithCompletionHandler({(connection, result, error) -> Void in
+                
+                if (error == nil) {
+                    let dictionary = result as? NSDictionary
+                    let data = dictionary?.objectForKey("data")
+                    
+                    let urlPic = (data?.objectForKey("url"))! as? String
+                    
+                    if let imageData = NSData(contentsOfURL: NSURL(string:urlPic!)!) {
+                        
+                        let profilePicReference = storageRef.child(user.uid + "/profile_pic.jpg")
+                        
+                        
+                        let uploadTask  = profilePicReference.putData(imageData, metadata: nil, completion: { (metadata, errror) in
+                            
+                            if (error == nil) {
+                                let downloadURL = metadata!.downloadURL
+                                
+                            } else {
+                                print("Error in downloading image")
+                            }
+                        })
+
+                        self.profileImageView.image = UIImage(data:imageData)
+                        
+                    }
+                }
+                
+                
+            })
+        }
             
         } else {
             // No user is signed in.

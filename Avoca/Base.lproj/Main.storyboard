@@ -236,7 +236,6 @@
                     </view>
                     <connections>
                         <outlet property="spinner" destination="fph-K4-UhZ" id="ZE7-BQ-StL"/>
-                        <segue destination="49e-Tb-3d3" kind="show" id="9I2-It-Hba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrD-CN-cLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
