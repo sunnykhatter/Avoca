@@ -108,7 +108,7 @@
                                 <inset key="titleEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Followers"/>
                                 <connections>
-                                    <segue destination="PUg-86-C8v" kind="show" id="q4A-1a-cJN"/>
+                                    <segue destination="PUg-86-C8v" kind="show" identifier="Followers" id="q4A-1a-cJN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LH6-tF-6lU">
@@ -119,6 +119,9 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="-36" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Following"/>
+                                <connections>
+                                    <segue destination="PUg-86-C8v" kind="show" identifier="Following" id="JLb-6r-Oa4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4tT-jV-WVF">
                                 <rect key="frame" x="111" y="74" width="107" height="28"/>
@@ -215,10 +218,10 @@
             </objects>
             <point key="canvasLocation" x="1672" y="1971"/>
         </scene>
-        <!--View Controller-->
+        <!--Followers Following Table View Controller-->
         <scene sceneID="Ven-gt-WZU">
             <objects>
-                <viewController id="PUg-86-C8v" sceneMemberID="viewController">
+                <viewController id="PUg-86-C8v" customClass="Followers_FollowingTableViewController" customModule="Avoca" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ANh-Rq-CuD"/>
                         <viewControllerLayoutGuide type="bottom" id="9Vw-zG-Vpy"/>
@@ -231,7 +234,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="JBL-fO-6u6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="90" id="JBL-fO-6u6">
                                         <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JBL-fO-6u6" id="wOs-uE-D5u">
@@ -454,5 +457,8 @@
         <image name="Video Icon" width="20" height="12"/>
         <image name="user-outline" width="22" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="q4A-1a-cJN"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.13725490196078433" green="0.66666666666666663" blue="0.25882352941176473" alpha="1" colorSpace="calibratedRGB"/>
 </document>

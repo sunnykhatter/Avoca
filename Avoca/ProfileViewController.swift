@@ -24,16 +24,22 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     @IBOutlet weak var profileImageView: UIImageView!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Profile"
+        
+        
     
         
         self.profileImageView.clipsToBounds = true
-        
+
+
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
             
+            
+
             let name = user.displayName
             let email = user.email
             let photoUrl = user.photoURL
@@ -42,72 +48,83 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
             self.name_label.text = name
             self.name_label.adjustsFontSizeToFitWidth = true
             self.name_label.font = UIFont(name: "Montserrat-Regular",size:18)
-            
-            
-            
-//            follower_button.setTitle("FOLLOWINGS", forState:.Normal)
 
+            //Firebase References
             let storage = FIRStorage.storage()
             
             let storageRef = storage.referenceForURL("gs://avoca-7815d.appspot.com")
             
-            let profilePicReference = storageRef.child(user.uid + "/profile_pic.jpg")
+            let profilePicRef = storageRef.child(user.uid+"/profile_pic")
 
             
-            profilePicReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-                if (error == nil) {
-                    print("Uh-oh, an error occurred!")
+            
+            profilePicRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+                if (error != nil) {
+                    // Uh-oh, an error occurred!
+                    print("unable to download images")
                     
                 } else {
+                    // Data for "images/island.jpg" is returned
+                    // ... let islandImage: UIImage! = UIImage(data: data!)
                     
-                    if (data != nil){
+                    if (data != nil) {
                         self.profileImageView.image = UIImage(data:data!)
                     }
-                    
                 }
             }
             
-            
             if (self.profileImageView.image == nil) {
                 
-            var profile_pic: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":100, "width":100,"redirect":false], HTTPMethod: "GET")
-            profile_pic.startWithCompletionHandler({(connection, result, error) -> Void in
+            
+            
+            
+            var profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":300, "width":300,"redirect":false ], HTTPMethod: "GET")
+           
+            
+            profilePic.startWithCompletionHandler({ (connection, result, error) in
                 
                 if (error == nil) {
                     let dictionary = result as? NSDictionary
                     let data = dictionary?.objectForKey("data")
                     
-                    let urlPic = (data?.objectForKey("url"))! as? String
+                    let urlPic = data?.objectForKey("url")! as! String
                     
-                    if let imageData = NSData(contentsOfURL: NSURL(string:urlPic!)!) {
+                    if let imageData = NSData(contentsOfURL: NSURL(string:urlPic)!) {
                         
-                        let profilePicReference = storageRef.child(user.uid + "/profile_pic.jpg")
-                        
-                        
-                        let uploadTask  = profilePicReference.putData(imageData, metadata: nil, completion: { (metadata, errror) in
+                        let uploadTask = profilePicRef.putData(imageData, metadata:nil) {
+                            metadata, error in
                             
                             if (error == nil) {
+                                // Can receive zie, content type or the download URL
                                 let downloadURL = metadata!.downloadURL
                                 
                             } else {
-                                print("Error in downloading image")
+                                print("error in downloading image")
                             }
-                        })
-
-                        self.profileImageView.image = UIImage(data:imageData)
+                        }
                         
+                        self.profileImageView.image = UIImage(data:imageData)
                     }
+                    
+                    
+                    
                 }
                 
                 
             })
         }
-            
+        
+        
+        
         } else {
-            // No user is signed in.
+            //no user is signed in
+            
             
             
         }
+        
+            
+            
         
         
         // Do any additional setup after loading the view.
@@ -144,6 +161,34 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
         cell.backgroundColor = UIColor.blackColor()
         // Configure the cell
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        
+//        var databaseRef = FIRDatabase.database().reference()
+//        
+//        databaseRef.child("users/evYMXgumxOUXwKMY6yXQjyHQuHL2").observeEventType( .Value) { (snapshot) in
+//            print(snapshot)
+//        }
+        
+        var segueID = segue.identifier
+        let secondViewController = segue.destinationViewController as! Followers_FollowingTableViewController
+
+        if (segueID == "Followers") {
+            secondViewController.receivedString = "Followers"
+            
+            
+        } else if (segueID == "Following"){
+            secondViewController.receivedString = "Following"
+
+        }
+        
+        
+        
+       
+        
+      
     }
 
     
