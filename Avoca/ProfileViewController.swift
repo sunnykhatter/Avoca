@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FBSDKCoreKit
+import FirebaseDatabase
+
 
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource{
@@ -42,6 +44,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
             self.name_label.font = UIFont(name: "Montserrat-Regular",size:18)
             
             
+            
+//            follower_button.setTitle("FOLLOWINGS", forState:.Normal)
+
             let storage = FIRStorage.storage()
             
             let storageRef = storage.referenceForURL("gs://avoca-7815d.appspot.com")
@@ -50,7 +55,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
 
             
             profilePicReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-                if (error != nil) {
+                if (error == nil) {
                     print("Uh-oh, an error occurred!")
                     
                 } else {

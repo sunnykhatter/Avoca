@@ -63,12 +63,67 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.loginButton.hidden = false
             spinner.stopAnimating()
         } else {
+            
+            
             print("User loggedin!")
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             
-            
             FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
                 print("user logged into firebase app")
+                
+                
+                if (error == nil) {
+                    
+                    let storage = FIRStorage.storage()
+                        
+                    let storageRef = storage.referenceForURL("gs://avoca-7815d.appspot.com")
+                    
+                    let profilePicRef = storageRef.child(user!.uid + "/profile_pic_small.jpg")
+                    
+                    let userID = user?.uid
+
+                    let databaseRef = FIRDatabase.database().reference()
+                    
+                    databaseRef.child("users")
+                    
+                    databaseRef.child("users").child(userID!).child("profile_pic_small").observeSingleEventOfType(.Value, withBlock: {
+                        (snapshot) in
+                        
+                        let profile_pic = snapshot.value as? String?
+                        
+                        if (profile_pic == nil) {
+                            if let imageData = NSData(contentsOfURL: user!.photoURL!) {
+                                let uploadTask = profilePicRef.putData(imageData, metadata:nil){
+                                    metadata, error in
+                                    
+                                    if (error == nil){
+                                        let downloadURL = metadata!.downloadURL
+                                        databaseRef.child("users").child("\(user!.uid)/profile_pic_small").setValue(downloadURL()!.absoluteString)
+                                    } else {
+                                        print("error in downloading image")
+                                    }
+                                }
+                            }
+                            
+                            
+                            var emptyDictionary = [String: String]()
+                            databaseRef.child("users").child("\(user!.uid)/name").setValue(user?.displayName)
+                            databaseRef.child("users").child("\(user!.uid)/followers").setValue(0)
+                            databaseRef.child("users").child("\(user!.uid)/following").setValue(0)
+                            
+                            
+                        }
+                        
+                        
+                    })
+                    
+                        
+                        
+    
+                
+                    
+                }
+                
             }
         }
         
