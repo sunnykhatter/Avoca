@@ -23,6 +23,12 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
     
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var follow: UIButton!
+    
+    @IBOutlet weak var logout_button: UIBarButtonItem!
+    
+    var receivedString : String! = nil
+
     
     
     override func viewDidLoad() {
@@ -35,15 +41,20 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
         self.profileImageView.clipsToBounds = true
 
 
+        if (receivedString == nil) {
+            
+        
+        
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
             
             
-
+            
             let name = user.displayName
             let email = user.email
             let photoUrl = user.photoURL
             let uid = user.uid; //firebase UID
+            self.follow.hidden = true
             
             self.name_label.text = name
             self.name_label.adjustsFontSizeToFitWidth = true
@@ -74,9 +85,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
             }
             
             if (self.profileImageView.image == nil) {
-                
-            
-            
             
             var profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":300, "width":300,"redirect":false ], HTTPMethod: "GET")
            
@@ -118,13 +126,17 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
         
         } else {
             //no user is signed in
-            
-            
-            
+      
         }
         
-            
-            
+        } else {
+            // set the images to the frame
+            print(receivedString)
+            self.follow.hidden = false
+            self.navigationItem.rightBarButtonItems = nil
+
+        }
+        
         
         
         // Do any additional setup after loading the view.

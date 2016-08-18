@@ -17,8 +17,6 @@ class Followers_FollowingTableViewController: UIViewController, UITableViewDeleg
         super.viewDidLoad()
         self.navigationItem.title = receivedString
 
-        
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +28,7 @@ class Followers_FollowingTableViewController: UIViewController, UITableViewDeleg
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
 
@@ -46,7 +45,33 @@ class Followers_FollowingTableViewController: UIViewController, UITableViewDeleg
 
         return cell
     }
- 
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        //        var databaseRef = FIRDatabase.database().reference()
+        //
+        //        databaseRef.child("users/evYMXgumxOUXwKMY6yXQjyHQuHL2").observeEventType( .Value) { (snapshot) in
+        //            print(snapshot)
+        //        }
+        
+        var segueID = segue.identifier
+        let secondViewController = segue.destinationViewController as! ProfileViewController
+        
+        if (segueID == "OtherProfile") {
+            secondViewController.receivedString = "Dog"
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+    }
+
     
     
     
