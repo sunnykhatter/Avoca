@@ -185,24 +185,46 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource{
 //        }
         
         var segueID = segue.identifier
-        let secondViewController = segue.destinationViewController as! Followers_FollowingTableViewController
+        print(segueID)
 
         if (segueID == "Followers") {
+            let secondViewController = segue.destinationViewController as! Followers_FollowingTableViewController
             secondViewController.receivedString = "Followers"
             
             
         } else if (segueID == "Following"){
+            let secondViewController = segue.destinationViewController as! Followers_FollowingTableViewController
             secondViewController.receivedString = "Following"
 
+        } else if (segueID == "Dogs") {
+            print("Posts")
+        
+        
+        } else if (segueID == "likes") {
+            print("Likes")
         }
-        
-        
-        
-       
-        
+    
       
     }
 
+    @IBOutlet weak var likesContainer: UIView!
+    
+    @IBOutlet weak var postsContainer: UIView!
+    
+    
+    @IBAction func choseContainer(sender: AnyObject) {
+        if (sender.selectedSegmentIndex == 0) {
+            self.postsContainer.alpha = 1
+            self.likesContainer.alpha = 0
+            
+        } else {
+            self.postsContainer.alpha = 0
+            self.likesContainer.alpha = 1
+        }
+    
+    
+    }
+    
     
 
 
